@@ -1,15 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}" />
     <title>Document</title>
 </head>
 <body>
-    <h1>Cursos</h1>
+    <h1> C U R S O S </h1>
+    
 
-    <p><a href="{% url 'curso_cadastro'%}">Cadastrar novo Curso</a></p>
+    <p><a href="{% url 'curso_cadastro'%}"><button type="button">CADASTRAR NOVO CURSO</button></a></p>
     
     <p>Lista de Cursos Cadastrados</p>
     {% for curso in lista_cursos %}
