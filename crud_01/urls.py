@@ -20,7 +20,7 @@ from core.views import cursos_listar, curso_cadastro, curso_editar, curso_remove
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cursos/', cursos_listar, name='cursos_listar'),
-    path('emprego_cadastro/', emprego_cadastro, name='emprego_cadastro')
+    path('emprego_cadastro/', emprego_cadastro, name='emprego_cadastro'),
     path('curso_cadastro/', curso_cadastro, name='curso_cadastro'),
     path('curso_editar/<int:id>/', curso_editar, name='curso_editar'),
     path('curso_remover/<int:id>/', curso_remover, name='curso_remover'),
