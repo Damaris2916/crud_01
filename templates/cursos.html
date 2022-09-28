@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,8 @@
     <h1> C U R S O S </h1>
     
 
-    <p><a href="{% url 'curso_cadastro'%}"><button type="button">CADASTRAR NOVO CURSO</button></a></p>
-    
+    <p><a href="{% url 'cursos_cadastro'%}"><button type="button">CADASTRAR NOVO CURSO</button></a></p>
+    <p><a href="{% url 'home'%}"><button type="button">VOLTAR A PAGINA DE INICIO</button></a></p>
     <p>Lista de Cursos Cadastrados</p>
     {% for curso in lista_cursos %}
         <p>{{curso.titulo}} -{{curso.vagas}} |

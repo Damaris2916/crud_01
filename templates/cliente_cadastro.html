@@ -7,27 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}" />
-    <title>Emprego</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Cadastro de Emprego</h1>
-
+    <h1>Cadastro de cliente</h1>
+    
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <p>{{form.titulo.label}}:
-            {% render_field form.titulo class="campo" placeholder="Digite do emprego" %}
+        <p>{{form.nome.label}}:
+            {% render_field form.nome class="campo" placeholder="Digite o nome" %}
         </p>
-        <p>{{form.vagas.label}}:
-            {% render_field form.vagas class="campo"%}
+        <p>{{form.telefone.label}}:
+            {% render_field form.telefone class="campo" placeholder="Digite seu telefone" %}
         </p>
-        <p>{{form.empresa.label}}:
-            {% render_field form.empresa class="campo" placeholder="Digite o nome da empresa" %}
+        <p>{{form.email.label}}:
+            {% render_field form.email class="campo" placeholder="Digite seu email" %}
+        </p>
+        <p>{{form.endereco.label}}:
+            {% render_field form.endereco class="campo" placeholder="Digite seu endereço" %}
         </p>
 
         <p>{{form.foto.label}}: {% render_field form.foto class="campo" %}</p>
         
         <button type="submit">Salvar</button>
     </form>
-    
+
+
 </body>
 </html>

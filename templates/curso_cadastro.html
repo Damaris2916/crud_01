@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,13 @@
 
 <form method="post">
     {% csrf_token %}
-    {{form}}
+    
+    <p>{{form.titulo.label}}:
+        {% render_field form.titulo class="campo" placeholder="Digite o titulo do curso" %}
+    </p>
+    <p>{{form.vagas.label}}:
+        {% render_field form.vagas class="campo" placeholder="Digite a quantidade de vagas" %}
+    </p>
     <button type="submit">Salvar</button>
 </form>
 

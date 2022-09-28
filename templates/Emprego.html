@@ -1,13 +1,31 @@
+{% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}" />
     <title>Emprego</title>
 </head>
 <body>
     <h1> E  M P R E G O </h1>
     
+    <p><a href="{% url 'empregos_cadastro'%}"><button type="button">CADASTRAR NOVO EMPREGO</button></a></p>
+    <p><a href="{% url 'home'%}"><button type="button">VOLTAR A PAGINA DE INICIO</button></a></p>
+    <p>Lista de Empregos Cadastrados</p>
+
+    {% for emprego in lista_empregos %}
+        <p><img src="/media/{{emprego.foto}}" alt="" width="100px"
+            height="100px"/>
+            {{emprego.titulo}} -{{emprego.vagas}} -{{emprego.empresa}}  |
+        <a href="{% url 'emprego_editar' emprego.id %}">EDITAR</a>
+        <a href="{% url 'emprego_remover' emprego.id %}">DELETAR</a></p>
+    {% empty %}
+    <p>Nenhum Emprego cadastrado ainda</p>
+    {% endfor %}
+
+
 </body>
 </html>

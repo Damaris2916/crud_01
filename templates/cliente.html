@@ -1,0 +1,31 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}" />
+    <title>Cursos</title>
+</head>
+<body>
+    <h1> C L I E N T E S </h1>
+    
+
+    <p><a href="{% url 'clientes_cadastro'%}"><button type="button">CADASTRAR NOVO CLIENTE</button></a></p>
+    <p><a href="{% url 'home'%}"><button type="button">VOLTAR A PAGINA DE INICIO</button></a></p>
+    <p>Lista de Clientes Cadastrados</p>
+
+    {% for cliente in lista_clientes %}
+        <p><img src="/media/{{cliente.foto}}" alt="" width="100px"
+            height="100px"/>
+            {{cliente.nome}} -{{cliente.telefone}} -{{cliente.email}} -{{cliente.endereco}}  |
+        <a href="{% url 'cliente_editar' cliente.id %}">EDITAR</a>
+        <a href="{% url 'cliente_remover' cliente.id %}">DELETAR</a></p>
+    {% empty %}
+    <p>Nenhum cliente cadastrado ainda</p>
+    {% endfor %}
+
+</body>
+</html>
